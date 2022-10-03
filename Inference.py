@@ -49,8 +49,6 @@ def predict(model, img_path):
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]) # imagenet
     ])
 
-    print(img_path)
-
     raw_img = cv2.imread(img_path)
 
     img = imgs_prepr(raw_img)
@@ -65,7 +63,6 @@ def predict(model, img_path):
 
 
 if __name__ == '__main__':
-    print(argv)
     try:
         opts, args = getopt.getopt(argv[2:],"ht:i:",["help","train=","infile="])
     except getopt.GetoptError:
@@ -88,7 +85,6 @@ if __name__ == '__main__':
     if mode == 'run_on_test':
         run_on_test(train)
     if mode == 'run_on_image':
-        print(infile)
         run_on_image(infile)
  
     
